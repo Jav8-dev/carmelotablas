@@ -44,7 +44,7 @@ class DashboardView extends StatelessWidget {
                     ),
                   ),
                 ),
-                // JUGADORES VISUAL
+                // Jugadores
                 Expanded(
                   flex: 4,
                   child: Container(
@@ -77,10 +77,54 @@ class DashboardView extends StatelessWidget {
               ],
             ),
           ),
-          // Historial
+          // HISTORIAL VISUAL
           Expanded(
             flex: 4,
-            child: Container(color: const Color(0xFFEEEEEE)),
+            child: Container(
+              color: const Color(0xFFECEFF1),
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
+                    child: Text('Historial de Movimientos', style: TextStyle(fontWeight: FontWeight.bold)),
+                  ),
+                  Expanded(
+                    child: ListView(
+                      children: const [
+                        ListTile(
+                          dense: true,
+                          leading: CircleAvatar(backgroundColor: Colors.blue, child: Text('1', style: TextStyle(color: Colors.white))),
+                          title: Text('Jugador 1 movió pieza'),
+                          subtitle: Text('Caballero a la casilla C4'),
+                          trailing: Icon(Icons.history),
+                        ),
+                        ListTile(
+                          dense: true,
+                          leading: CircleAvatar(backgroundColor: Colors.red, child: Text('2', style: TextStyle(color: Colors.white))),
+                          title: Text('Jugador 2 movió pieza'),
+                          subtitle: Text('Caballero a la casilla C4'),
+                          trailing: Icon(Icons.history),
+                        ),
+                        ListTile(
+                          dense: true,
+                          leading: CircleAvatar(backgroundColor: Colors.blue, child: Text('3', style: TextStyle(color: Colors.white))),
+                          title: Text('Jugador 1 movió pieza'),
+                          subtitle: Text('Caballero a la casilla C4'),
+                          trailing: Icon(Icons.history),
+                        ),
+                        ListTile(
+                          dense: true,
+                          leading: CircleAvatar(backgroundColor: Colors.red, child: Text('4', style: TextStyle(color: Colors.white))),
+                          title: Text('Jugador 2 movió pieza'),
+                          subtitle: Text('Caballero a la casilla C4'),
+                          trailing: Icon(Icons.history),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
