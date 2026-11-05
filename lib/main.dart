@@ -19,6 +19,37 @@ class MyApp extends StatelessWidget {
 class TacticalDashboardPage extends StatelessWidget {
   const TacticalDashboardPage({super.key});
 
+  Widget _buildPlayerCard({
+    required String name,
+    required Color color,
+    required int points,
+    required IconData icon,
+  }) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          name,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 10),
+        Icon(icon, size: 48, color: color),
+        const SizedBox(height: 8),
+        Text(
+          'Puntos: $points',
+          style: const TextStyle(
+            color: Colors.white70,
+            fontSize: 14,
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,26 +59,24 @@ class TacticalDashboardPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Tablero  y Jugadores
           Expanded(
             flex: 6,
             child: Row(
               children: [
-                // 1. Área de juego
+                // Tablero 4x4
                 Expanded(
                   flex: 6,
                   child: Container(
-                    color: const Color(0xFF2A3942),
+                    color: const Color(0xFF263238),
                     padding: const EdgeInsets.all(12),
                     child: GridView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: 16,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4,
-                            crossAxisSpacing: 8,
-                            mainAxisSpacing: 8,
-                          ),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        crossAxisSpacing: 8,
+                        mainAxisSpacing: 8,
+                      ),
                       itemBuilder: (context, index) {
                         return Container(
                           decoration: BoxDecoration(
@@ -65,32 +94,41 @@ class TacticalDashboardPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                // Panel de jugadores (placeholder)
+                // SECCIÓN INFORMACIÓN DE JUGADORES
                 Expanded(
                   flex: 4,
                   child: Container(
                     color: const Color(0xFF37474F),
-                    child: const Center(
-                      child: Text(
-                        'Información de Jugadores',
-                        style: TextStyle(color: Colors.white70),
-                      ),
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _buildPlayerCard(
+                          name: 'Jugador 1 (Azul)',
+                          color: Colors.blueAccent,
+                          points: 120,
+                          icon: Icons.person,
+                        ),
+                        _buildPlayerCard(
+                          name: 'Jugador 2 (Rojo)',
+                          color: Colors.redAccent,
+                          points: 120,
+                          icon: Icons.person_outline,
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          // Historial de movimientos
+          // Historial (placeholder)
           Expanded(
             flex: 4,
             child: Container(
               color: const Color(0xFFECEFF1),
               child: const Center(
-                child: Text(
-                  'Historial de Movimientos',
-                ),
+                child: Text('Historial de Movimientos'),
               ),
             ),
           ),
