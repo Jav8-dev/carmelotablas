@@ -18,12 +18,33 @@ class DashboardView extends StatelessWidget {
             flex: 6,
             child: Row(
               children: [
-                // 1. Tablero
+                // TABLERO 4x4
                 Expanded(
                   flex: 6,
-                  child: Container(color: const Color(0xFF2E3E46)),
+                  child: Container(
+                    color: const Color(0xFF2E3E46),
+                    padding: const EdgeInsets.all(8),
+                    child: GridView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 16,
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        crossAxisSpacing: 4,
+                        mainAxisSpacing: 4,
+                      ),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF475B64),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: const Icon(Icons.shield, color: Colors.white38),
+                        );
+                      },
+                    ),
+                  ),
                 ),
-                // 2. Info Jugadores
+                // Jugadores (vacío aún)
                 Expanded(
                   flex: 4,
                   child: Container(color: const Color(0xFF3B4D56)),
@@ -31,7 +52,7 @@ class DashboardView extends StatelessWidget {
               ],
             ),
           ),
-          // 3. Historial abajo
+          // Historial
           Expanded(
             flex: 4,
             child: Container(color: const Color(0xFFEEEEEE)),
