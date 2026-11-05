@@ -38,15 +38,35 @@ class TacticalDashboardPage extends StatelessWidget {
                   flex: 6,
                   child: Container(
                     color: const Color(0xFF2A3942),
-                    child: const Center(
-                      child: Text(
-                        'Área de Juego (Tablero)',
-                        style: TextStyle(color: Colors.white70),
-                      ),
+                    padding: const EdgeInsets.all(12),
+                    child: GridView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 16,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 4,
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 8,
+                          ),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF455A64),
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: Colors.white24, width: 1),
+                          ),
+                          child: const Icon(
+                            Icons.shield_outlined,
+                            color: Colors.white60,
+                            size: 26,
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
-                // 2. Información de jugadores
+
+                // Panel de jugadores (placeholder)
                 Expanded(
                   flex: 4,
                   child: Container(
@@ -70,7 +90,6 @@ class TacticalDashboardPage extends StatelessWidget {
               child: const Center(
                 child: Text(
                   'Historial de Movimientos',
-                  style: TextStyle(color: Colors.black87),
                 ),
               ),
             ),
