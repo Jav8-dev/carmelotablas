@@ -18,7 +18,7 @@ class DashboardView extends StatelessWidget {
             flex: 6,
             child: Row(
               children: [
-                // Tablero
+                // TABLERO 4x4
                 Expanded(
                   flex: 6,
                   child: Container(
@@ -44,35 +44,10 @@ class DashboardView extends StatelessWidget {
                     ),
                   ),
                 ),
-                // JUGADORES VISUAL
+                // Jugadores (vacío aún)
                 Expanded(
                   flex: 4,
-                  child: Container(
-                    color: const Color(0xFF3B4D56),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Column(
-                          children: [
-                            Text('Jugador 1 (Azul)', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                            SizedBox(height: 6),
-                            Icon(Icons.person, color: Colors.blue, size: 40),
-                            SizedBox(height: 6),
-                            Text('Puntos: 120', style: TextStyle(color: Colors.white70)),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text('Jugador 2 (Rojo)', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                            SizedBox(height: 6),
-                            Icon(Icons.person_outline, color: Colors.red, size: 40),
-                            SizedBox(height: 6),
-                            Text('Puntos: 120', style: TextStyle(color: Colors.white70)),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  child: Container(color: const Color(0xFF3B4D56)),
                 ),
               ],
             ),
